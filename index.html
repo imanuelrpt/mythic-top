@@ -1,0 +1,650 @@
+{    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MythicTop - Top Up Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        
+        .anime-bg {
+            background-image: url('https://images.unsplash.com/photo-1611601184324-2fef3fe2dff4?auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .genshin-card {
+            background: url('image/genshin.jpeg') center/cover;
+        }
+        .ml-card {
+            background: url('image/mlbb.jpeg') center/cover;
+        }
+        .valorant-card {
+            background: url('image/Valorant.jpeg') center/cover;
+        }
+        .pubg-card {
+            background: url('image/pubg.jpeg') center/cover;
+        }
+       
+        .anime-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.85);
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+        
+        .nav-link:hover {
+            color: #818cf8;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+        }
+    </style>
+</head>
+<body class="anime-bg">
+    
+<!-- Navbar -->
+<nav class="relative z-10 py-4 px-6 lg:px-12 bg-gray-900 bg-opacity-80 backdrop-blur-sm">
+    <div class="flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-gamepad text-purple-400 text-2xl"></i>
+            <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-300">MythicTop</span>
+        </div>
+        
+        <div class="hidden md:flex space-x-8">
+            <a href="#" class="nav-link text-gray-300 hover:text-purple-300 transition">Home</a>
+            <a href="#" class="nav-link text-gray-300 hover:text-purple-300 transition">Games</a>
+            <a href="#" class="nav-link text-gray-300 hover:text-purple-300 transition">Promo</a>
+            <a href="#" class="nav-link text-gray-300 hover:text-purple-300 transition">About</a>
+            <a href="#" class="nav-link text-gray-300 hover:text-purple-300 transition">Contact</a>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+            <button class="btn-primary px-4 py-2 rounded-full text-white font-medium transition">
+                Login
+            </button>
+            <button class="md:hidden text-gray-300" id="mobile-menu-button">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden mt-4 pb-2" id="mobile-menu">
+        <a href="#" class="block py-2 text-gray-300 hover:text-purple-300 transition">Home</a>
+        <a href="#" class="block py-2 text-gray-300 hover:text-purple-300 transition">Games</a>
+        <a href="#" class="block py-2 text-gray-300 hover:text-purple-300 transition">Promo</a>
+        <a href="#" class="block py-2 text-gray-300 hover:text-purple-300 transition">About</a>
+        <a href="#" class="block py-2 text-gray-300 hover:text-purple-300 transition">Contact</a>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="relative z-10 py-16 px-6 lg:px-12 text-center">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-300">
+            Top Up Game Favoritmu
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            Dapatkan diamond, crystal, dan item game lainnya dengan harga termurah dan proses instan!
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <button class="btn-primary px-6 py-3 rounded-full text-white font-medium transition flex items-center justify-center gap-2">
+                <i class="fas fa-fire"></i> Lihat Promo
+            </button>
+            <button class="px-6 py-3 rounded-full border border-purple-400 text-purple-400 font-medium transition hover:bg-purple-900 hover:bg-opacity-30 flex items-center justify-center gap-2">
+                <i class="fas fa-gamepad"></i> Daftar Game
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Popular Games - Enhanced Version -->
+<section class="relative z-10 py-16 px-6 lg:px-12">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+            <span class="pb-2 bg-gradient-to-r from-purple-400 to-pink-500 bg-[length:100%_4px] bg-no-repeat bg-bottom">
+                Game Populer
+            </span>
+        </h2>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Genshin Impact Card -->
+            <div class="game-card genshin-card group relative overflow-hidden rounded-2xl transition-all duration-500 cursor-pointer">
+                <div class="absolute inset-0 bg-gradient-to-b from-blue-900/70 to-gray-900/90 z-10"></div>
+                <div class="relative z-20 h-full flex flex-col p-6">
+                    <div class="flex justify-center mb-4">
+                        <img src="image/genshin.jpeg" alt="Genshin Impact" 
+                            class="w-24 h-24 object-contain transition-transform duration-300 group-hover:scale-110">
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-2 text-white flex items-center justify-center gap-2">
+                        <span>Genshin Impact</span>
+                        <i class="fas fa-star text-yellow-300"></i>
+                    </h3>
+                    <p class="text-gray-300 text-sm text-center mb-6">Top up Genesis Crystal</p>
+                    
+                    <div class="mt-auto">
+                        <div class="grid grid-cols-2 gap-2 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="bg-blue-900/50 rounded p-2 text-center border border-blue-700">
+                                <p class="text-xs text-blue-200">60 Crystals</p>
+                                <p class="text-white font-bold">Rp 15.000</p>
+                            </div>
+                            <div class="bg-blue-900/50 rounded p-2 text-center border border-blue-700">
+                                <p class="text-xs text-blue-200">300 Crystals</p>
+                                <p class="text-white font-bold">Rp 75.000</p>
+                            </div>
+                        </div>
+                        
+                        <button class="w-full py-3 rounded-xl font-bold transition-all flex items-center justify-center gap-2 
+                                    bg-gradient-to-r from-blue-500 to-blue-600 text-white
+                                    hover:from-blue-400 hover:to-blue-500 hover:shadow-lg hover:shadow-blue-500/30">
+                            <i class="fas fa-gem"></i>
+                            Beli Sekarang
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+<!-- PUBG Mobile Card -->
+<div class="game-card pubg-card group relative overflow-hidden rounded-2xl transition-all duration-500 cursor-pointer">
+    <div class="absolute inset-0 bg-gradient-to-b from-yellow-900/70 to-gray-900/90 z-10"></div>
+    <div class="relative z-20 h-full flex flex-col p-6">
+        <div class="flex justify-center mb-4">
+            <img src="image/pubg.jpeg" alt="PUBG Mobile" 
+                class="w-24 h-24 object-contain transition-transform duration-300 group-hover:scale-110">
+        </div>
+        <h3 class="text-2xl font-bold text-center mb-2 text-white flex items-center justify-center gap-2">
+            <span>PUBG Mobile</span>
+            <i class="fas fa-crosshairs text-yellow-300"></i>
+        </h3>
+        <p class="text-gray-300 text-sm text-center mb-6">Top up UC</p>
+        
+        <div class="mt-auto">
+            <div class="grid grid-cols-2 gap-2 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="bg-yellow-900/50 rounded p-2 text-center border border-yellow-700">
+                    <p class="text-xs text-yellow-200">60 UC</p>
+                    <p class="text-white font-bold">Rp 15.000</p>
+                </div>
+                <div class="bg-yellow-900/50 rounded p-2 text-center border border-yellow-700">
+                    <p class="text-xs text-yellow-200">325 UC</p>
+                    <p class="text-white font-bold">Rp 62.000</p>
+                </div>
+            </div>
+            
+            <button class="w-full py-3 rounded-xl font-bold transition-all flex items-center justify-center gap-2 
+                        bg-gradient-to-r from-yellow-500 to-yellow-600 text-gray-900
+                        hover:from-yellow-400 hover:to-yellow-500 hover:shadow-lg hover:shadow-yellow-500/30">
+                <i class="fas fa-bolt"></i>
+                Beli Sekarang
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* PUBG Card Background */
+    .pubg-card {
+        background: url('https://i.imgur.com/5zVJQ9f.jpg') center/cover;
+    }
+</style>
+            
+            <!-- Mobile Legends Card -->
+            <div class="game-card ml-card group relative overflow-hidden rounded-2xl transition-all duration-500 cursor-pointer">
+                <div class="absolute inset-0 bg-gradient-to-b from-red-900/70 to-gray-900/90 z-10"></div>
+                <div class="relative z-20 h-full flex flex-col p-6">
+                    <div class="flex justify-center mb-4">
+                        <img src="image/mlbb.jpeg" alt="Mobile Legends" 
+                            class="w-24 h-24 object-contain transition-transform duration-300 group-hover:scale-110">
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-2 text-white flex items-center justify-center gap-2">
+                        <span>Mobile Legends</span>
+                        <i class="fas fa-crown text-yellow-300"></i>
+                    </h3>
+                    <p class="text-gray-300 text-sm text-center mb-6">Top up Diamond</p>
+                    
+                    <div class="mt-auto">
+                        <div class="grid grid-cols-2 gap-2 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="bg-red-900/50 rounded p-2 text-center border border-red-700">
+                                <p class="text-xs text-red-200">50 Diamonds</p>
+                                <p class="text-white font-bold">Rp 15.000</p>
+                            </div>
+                            <div class="bg-red-900/50 rounded p-2 text-center border border-red-700">
+                                <p class="text-xs text-red-200">250 Diamonds</p>
+                                <p class="text-white font-bold">Rp 70.000</p>
+                            </div>
+                        </div>
+                        
+                        <button class="w-full py-3 rounded-xl font-bold transition-all flex items-center justify-center gap-2 
+                                    bg-gradient-to-r from-red-500 to-red-600 text-white
+                                    hover:from-red-400 hover:to-red-500 hover:shadow-lg hover:shadow-red-500/30">
+                            <i class="fas fa-gem"></i>
+                            Beli Sekarang
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Valorant Card -->
+            <div class="game-card valorant-card group relative overflow-hidden rounded-2xl transition-all duration-500 cursor-pointer">
+                <div class="absolute inset-0 bg-gradient-to-b from-green-900/70 to-gray-900/90 z-10"></div>
+                <div class="relative z-20 h-full flex flex-col p-6">
+                    <div class="flex justify-center mb-4">
+                        <img src="image/Valorant.jpeg" alt="Valorant" 
+                            class="w-24 h-24 object-contain transition-transform duration-300 group-hover:scale-110">
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-2 text-white flex items-center justify-center gap-2">
+                        <span>Valorant</span>
+                        <i class="fas fa-crosshairs text-green-300"></i>
+                    </h3>
+                    <p class="text-gray-300 text-sm text-center mb-6">Top up Valorant Point</p>
+                    
+                    <div class="mt-auto">
+                        <div class="grid grid-cols-2 gap-2 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="bg-green-900/50 rounded p-2 text-center border border-green-700">
+                                <p class="text-xs text-green-200">500 VP</p>
+                                <p class="text-white font-bold">Rp 65.000</p>
+                            </div>
+                            <div class="bg-green-900/50 rounded p-2 text-center border border-green-700">
+                                <p class="text-xs text-green-200">1000 VP</p>
+                                <p class="text-white font-bold">Rp 125.000</p>
+                            </div>
+                        </div>
+                        
+                        <button class="w-full py-3 rounded-xl font-bold transition-all flex items-center justify-center gap-2 
+                                    bg-gradient-to-r from-green-500 to-green-600 text-white
+                                    hover:from-green-400 hover:to-green-500 hover:shadow-lg hover:shadow-green-500/30">
+                            <i class="fas fa-bullseye"></i>
+                            Beli Sekarang
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Card Backgrounds menggunakan gambar lokal */
+    .genshin-card {
+        background: url('image/genshin.jpeg') center/cover no-repeat !important;
+        background-color: #1e3a8a; /* fallback warna biru */
+    }
+
+    .ml-card {
+        background: url('image/mlbb.jpeg') center/cover no-repeat !important;
+        background-color: #7f1d1d; /* fallback warna merah tua */
+    }
+
+    .valorant-card {
+        background: url('image/valorant.jpeg') center/cover no-repeat !important;
+        background-color: #064e3b; /* fallback warna hijau tua */
+    }
+
+    .pubg-card {
+        background: url('image/pubg.jpeg') center/cover no-repeat !important;
+        background-color: #78350f; /* fallback warna kuning-coklat tua */
+    }
+
+    /* Card Animation */
+    .game-card {
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        height: 100%;
+    }
+
+    .game-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Title Gradient */
+    .bg-gradient-title {
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+</style>
+
+<!-- About Section - Enhanced -->
+<section id="about" class="relative overflow-hidden py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-purple-900 text-center">
+  <!-- Decorative elements -->
+  <div class="absolute top-0 left-0 w-full h-full opacity-10">
+    <div class="absolute top-20 left-10 w-32 h-32 bg-purple-500 rounded-full mix-blend-screen filter blur-xl"></div>
+    <div class="absolute bottom-10 right-10 w-40 h-40 bg-indigo-600 rounded-full mix-blend-screen filter blur-xl"></div>
+  </div>
+  
+  <div class="relative z-10 max-w-5xl mx-auto">
+    <!-- Section header with animated underline -->
+    <div class="mb-12">
+      <h2 class="inline-block text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-300 mb-4">
+        Tentang MythicTop
+      </h2>
+      <div class="w-24 h-1 mx-auto bg-gradient-to-r from-purple-400 to-pink-500 rounded-full animate-pulse"></div>
+    </div>
+    
+    <!-- Content with animated cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <div class="bg-gray-800 bg-opacity-50 backdrop-blur-sm rounded-xl p-6 border border-purple-900 hover:border-purple-400 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
+        <div class="text-purple-400 mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-purple-200 mb-3">Layanan Cepat</h3>
+        <p class="text-gray-300">Proses top up hanya dalam hitungan menit setelah pembayaran dikonfirmasi.</p>
+      </div>
+      
+      <!-- Card 2 -->
+      <div class="bg-gray-800 bg-opacity-50 backdrop-blur-sm rounded-xl p-6 border border-purple-900 hover:border-purple-400 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
+        <div class="text-purple-400 mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-purple-200 mb-3">Aman & Terpercaya</h3>
+        <p class="text-gray-300">Transaksi aman dengan sistem keamanan berlapis untuk data pengguna.</p>
+      </div>
+      
+      <!-- Card 3 -->
+      <div class="bg-gray-800 bg-opacity-50 backdrop-blur-sm rounded-xl p-6 border border-purple-900 hover:border-purple-400 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
+        <div class="text-purple-400 mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-purple-200 mb-3">Harga Bersaing</h3>
+        <p class="text-gray-300">Harga terbaik di kelasnya dengan berbagai promo menarik setiap minggu.</p>
+      </div>
+    </div>
+    
+    <!-- Additional description -->
+    <div class="mt-16 bg-gray-800 bg-opacity-40 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
+      <p class="text-gray-300 text-lg leading-relaxed">
+        MythicTop adalah platform top up game terpercaya yang hadir untuk memenuhi kebutuhan para gamer di Indonesia.
+        Kami menyediakan layanan cepat, aman, dan harga bersaing untuk berbagai game populer. 
+        Dengan dukungan pelanggan 24/7 yang responsif dan sistem pembayaran yang mudah, kami berkomitmen memberikan pengalaman terbaik bagi setiap pengguna.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Promo Section -->
+<section class="relative z-10 py-12 px-6 lg:px-12 bg-gradient-to-b from-purple-900 to-transparent mt-12">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">
+            <span class="border-b-2 border-purple-400 pb-2">Promo Spesial</span>
+        </h2>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Promo 1 -->
+            <div class="bg-gray-800 bg-opacity-70 rounded-xl overflow-hidden transition duration-300 hover:shadow-lg hover:shadow-purple-900/30">
+                <div class="h-40 bg-gradient-to-r from-purple-500 to-indigo-600 flex items-center justify-center">
+                    <span class="text-4xl font-bold text-white">50% OFF</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">New User Discount</h3>
+                    <p class="text-gray-400 mb-4">Diskon 50% untuk pembelian pertama semua game!</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-purple-300">Berlaku hingga 30 Juni 2024</span>
+                        <button class="text-purple-400 hover:text-purple-300 transition">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Promo 2 -->
+            <div class="bg-gray-800 bg-opacity-70 rounded-xl overflow-hidden transition duration-300 hover:shadow-lg hover:shadow-purple-900/30">
+                <div class="h-40 bg-gradient-to-r from-indigo-500 to-blue-600 flex items-center justify-center">
+                    <span class="text-4xl font-bold text-white">+20%</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Bonus Diamond</h3>
+                    <p class="text-gray-400 mb-4">Dapatkan bonus 20% diamond untuk Mobile Legends!</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-blue-300">Berlaku hingga 15 Juli 2024</span>
+                        <button class="text-blue-400 hover:text-blue-300 transition">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Promo 3 -->
+            <div class="bg-gray-800 bg-opacity-70 rounded-xl overflow-hidden transition duration-300 hover:shadow-lg hover:shadow-purple-900/30">
+                <div class="h-40 bg-gradient-to-r from-pink-500 to-rose-600 flex items-center justify-center">
+                    <span class="text-4xl font-bold text-white">FREE</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Giveaway Skin</h3>
+                    <p class="text-gray-400 mb-4">Ikuti giveaway skin Valorant senilai 1.000.000!</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-pink-300">Berlaku hingga 31 Juli 2024</span>
+                        <button class="text-pink-400 hover:text-pink-300 transition">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonial -->
+<section class="relative z-10 py-12 px-6 lg:px-12">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center">
+            <span class="border-b-2 border-purple-400 pb-2">Apa Kata Mereka</span>
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Testi 1 -->
+            <div class="bg-gray-800 bg-opacity-70 rounded-xl p-6 relative">
+                <div class="absolute -top-5 -left-5 bg-purple-500 w-12 h-12 rounded-full flex items-center justify-center">
+                    <i class="fas fa-quote-left text-white"></i>
+                </div>
+                <p class="text-gray-300 mb-4">
+                    Proses top up sangat cepat, hanya butuh 2 menit diamond ML langsung masuk. Recommended banget!
+                </p>
+                <div class="flex items-center">
+                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="User" class="w-10 h-10 rounded-full mr-3">
+                    <div>
+                        <h4 class="font-medium">Rina Tanaka</h4>
+                        <span class="text-sm text-purple-300">Mobile Legends Player</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testi 2 -->
+            <div class="bg-gray-800 bg-opacity-70 rounded-xl p-6 relative">
+                <div class="absolute -top-5 -left-5 bg-indigo-500 w-12 h-12 rounded-full flex items-center justify-center">
+                    <i class="fas fa-quote-left text-white"></i>
+                </div>
+                <p class="text-gray-300 mb-4">
+                    Awalnya ragu, tapi setelah coba ternyata benar-benar aman dan harganya lebih murah dari yang lain.
+                </p>
+                <div class="flex items-center">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="User" class="w-10 h-10 rounded-full mr-3">
+                    <div>
+                        <h4 class="font-medium">David Chen</h4>
+                        <span class="text-sm text-indigo-300">Genshin Impact Player</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testi 3 -->
+            <div class="bg-gray-800 bg-opacity-70 rounded-xl p-6 relative">
+                <div class="absolute -top-5 -left-5 bg-pink-500 w-12 h-12 rounded-full flex items-center justify-center">
+                    <i class="fas fa-quote-left text-white"></i>
+                </div>
+                <p class="text-gray-300 mb-4">
+                    CS-nya ramah dan responsif banget. Pas ada kendala langsung dibantu sampai selesai. Pokoknya top!
+                </p>
+                <div class="flex items-center">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="User" class="w-10 h-10 rounded-full mr-3">
+                    <div>
+                        <h4 class="font-medium">Sakura Yamamoto</h4>
+                        <span class="text-sm text-pink-300">Valorant Player</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="relative z-10 py-16 px-6 lg:px-12 text-center bg-gradient-to-b from-transparent to-purple-900 mt-12">
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            Siap Top Up Game Favoritmu?
+        </h2>
+        <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+            Daftar sekarang dan dapatkan bonus voucher senilai 10.000 untuk pembelian pertama!
+        </p>
+        <button class="btn-primary px-8 py-3 rounded-full text-white font-medium text-lg transition flex items-center justify-center gap-2 mx-auto">
+            <i class="fas fa-user-plus"></i> Daftar Sekarang
+        </button>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="relative z-10 py-8 px-6 lg:px-12 bg-gray-900 bg-opacity-90">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <div class="flex items-center space-x-2 mb-4">
+                    <i class="fas fa-gamepad text-purple-400 text-2xl"></i>
+                    <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-300">MythicTop</span>
+                </div>
+                <p class="text-gray-400 mb-4">
+                    Platform top up game tercepat dan termurah!
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-purple-400 transition">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-purple-400 transition">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-purple-400 transition">
+                        <i class="fab fa-discord text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-purple-400 transition">
+                        <i class="fab fa-youtube text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-semibold mb-4 border-b border-purple-500 pb-2 inline-block">Game</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">Genshin Impact</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">Mobile Legends</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">Valorant</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">PUBG Mobile</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-semibold mb-4 border-b border-purple-500 pb-2 inline-block">Layanan</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">Cara Top Up</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">Status Pesanan</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">Promo</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">FAQ</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-purple-300 transition">Bantuan</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-semibold mb-4 border-b border-purple-500 pb-2 inline-block">Kontak</h3>
+                <ul class="space-y-2">
+                    <li class="flex items-center text-gray-400">
+                        <i class="fas fa-envelope mr-2 text-purple-400"></i> support@MythicTop.com
+                    </li>
+                    <li class="flex items-center text-gray-400">
+                        <i class="fas fa-phone mr-2 text-purple-400"></i> +62 812-3456-7890
+                    </li>
+                    <li class="flex items-center text-gray-400">
+                        <i class="fas fa-map-marker-alt mr-2 text-purple-400"></i> Bekasi, Indonesia
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-500 text-sm">
+            <p>&copy; 2025 MythicTop. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.game-card, .promo-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
